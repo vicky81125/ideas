@@ -1,5 +1,21 @@
 {
-  "runs": [],
+  "runs": [
+    {
+      "date": "2026-07-05",
+      "type": "weekly_review",
+      "note": "First-ever run, landed on a Sunday. Ledger was the empty seed state (0 prior runs, 0 clusters, 0 ideas), so the weekly review had nothing to re-rank, no clusters to mark stale/hot, and no top-3-to-validate list. No demand mining performed (by design, Sundays skip Stages 1-5). Reported to Slack #ideas-and-research as an honest empty output.",
+      "env_check": {
+        "EXA_API_KEY": true,
+        "JINA_API_KEY": true,
+        "GITHUB_TOKEN": true,
+        "REDDIT_CLIENT_ID": false,
+        "REDDIT_CLIENT_SECRET": false
+      },
+      "domains_selected": [],
+      "ideas_output": [],
+      "slack_message_ts": "1783229646.998189"
+    }
+  ],
   "clusters": [],
   "domains_history": []
 }
