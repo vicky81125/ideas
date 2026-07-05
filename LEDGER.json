@@ -14,8 +14,146 @@
       "domains_selected": [],
       "ideas_output": [],
       "slack_message_ts": "1783229646.998189"
+    },
+    {
+      "date": "2026-07-05",
+      "type": "daily_full_pipeline",
+      "note": "Superseding run: per updated routine instructions, every run (including Sundays and first-runs) executes the full Stage 1-6 pipeline, no review-only days. This run mined all 12 domains for heat, selected top 5, ran full demand mining, and found 0 clusters clearing the 2-signal-class bar. Zero is the honest output given today's evidence.",
+      "env_check": {
+        "EXA_API_KEY": true,
+        "JINA_API_KEY": true,
+        "GITHUB_TOKEN": true,
+        "REDDIT_CLIENT_ID": false,
+        "REDDIT_CLIENT_SECRET": false
+      },
+      "domains_selected": [
+        {"domain": "Dev tools / AI-coding workflow", "heat": 9, "evidence": "HN: 57 stories + 5 Ask HN in 7d (query 'AI coding agent'/'code review bot'), far above all other domains; GitHub trending (via r.jina.ai fallback, api.github.com search blocked) dominated by agent tooling repos (alibaba/page-agent +742 stars/day, ChromeDevTools/chrome-devtools-mcp +304/day, ruvnet/ruflo +145/day)"},
+        {"domain": "Integration glue (horizontal)", "heat": 7, "evidence": "Exa news (last 7d): Pipedrive launched native MCP server, SnapLogic launched MCP Builder, Workato open-sourced 'Labs' hub, all this week -- incumbents racing to close native-integration gaps themselves"},
+        {"domain": "Solopreneur finance ops", "heat": 5, "evidence": "Exa news: Wesley AI bookkeeping platform launch (2026-07-03), InvoiceXpress AI invoicing launch, Tenity/infinity.swiss $3M accounting raise -- vendor-side heat, no buyer-pain evidence found"},
+        {"domain": "Legal / compliance ops for SMBs", "heat": 5, "evidence": "Exa news: Spellbook autonomous contract management launch, Librari $1.75M raise for SMB contract AI -- vendor-side heat only"},
+        {"domain": "Agent-powered SMB ops automation", "heat": 5, "evidence": "Exa news: Turner Digital Receptionist AI launch, Knowlix AI SME teammate launch, Pie $19.5M raise -- vendor-side heat only"},
+        {"domain": "E-commerce / DTC ad ops", "heat": 3, "evidence": "Exa news only Google Ads API/product-change announcements, no pain/demand signal; HN 0/0"},
+        {"domain": "Healthcare admin (non-clinical)", "heat": 3, "evidence": "Exa news mostly India govt HMIS rollout (not target buyer) + Commure Orchestrator (enterprise-funded); HN 0/0"},
+        {"domain": "Creator / newsletter tooling", "heat": 4, "evidence": "Exa news: Riverside newsletter launch, PostOnce crossposting tool launch; HN 0/0"},
+        {"domain": "Recruiting / HR ops", "heat": 4, "evidence": "Exa news: Folks/Fountain/Toast/PageUp AI recruiting launches (vendor heat); HN 1 story/0 ask"},
+        {"domain": "Field services / vertical CRM", "heat": 4, "evidence": "Exa news: ServiceTitan Max, BuildOps OpsAI, MioCommerce, Fieldcode, Vertex/Revin -- incumbents already deeply AI-integrated, high competition density; HN 0/0"},
+        {"domain": "Real estate ops", "heat": 4, "evidence": "Exa news: AI receptionist/CRM marketing content, mostly vendor fluff; HN 1 story/1 ask"},
+        {"domain": "EdTech / course ops", "heat": 2, "evidence": "Exa news mostly unrelated (HBCU partnership, compliance training); HN 0/0"}
+      ],
+      "rotation_note": "domains_history was empty entering this run (first full-pipeline run), so no rotation penalty applied to any domain.",
+      "clusters_added": [
+        {
+          "id": "c-2026-07-05-01",
+          "jtbd": "Developer who pays for an AI code-review tool (e.g. CodeRabbit) wants unthrottled, affordable automated review of AI-agent-generated PRs",
+          "status": "parked",
+          "signal_classes": ["hn_ask"],
+          "evidence_count": 1,
+          "last_seen": "2026-07-05",
+          "evidence": [
+            {"quote": "I got an annual subscription to Code Rabbit but now they are throttling reviews to only 2 per hours! What are you guys using for code review? Obviously Codex/Claude GitHub connectors are not doing a good job and paying per use for Code Rabbit is rediculous expensive.", "url": "https://news.ycombinator.com/item?id=48461670", "date": "2026-06-09", "author_type": "paying buyer"}
+          ],
+          "kill_reason": "Only one independent signal class found (HN Ask HN); no corroborating freelance gig, app-store gap, or second community source. Competitive set (CodeRabbit, GitHub Copilot code review, Greptile, Qodo) is entrenched/well-funded -- high risk even if a second signal appears."
+        },
+        {
+          "id": "c-2026-07-05-02",
+          "jtbd": "SMB/agency needs native Tool A <-> Tool B sync instead of Zapier",
+          "status": "parked",
+          "signal_classes": ["exa_news"],
+          "evidence_count": 1,
+          "last_seen": "2026-07-05",
+          "evidence": [
+            {"quote": "Pipedrive Launches MCP Server for AI Assistants; SnapLogic launches MCP Builder for AI agent integration; Workato Launches Open-Source 'Labs' Hub for AI-Driven Automation", "url": "https://martech360.com/news/stack-platforms/pipedrive-launches-native-mcp-server-bringing-crm-workflows-directly-into-ai-assistants/", "date": "2026-07-01", "author_type": "vendor/incumbent"}
+          ],
+          "kill_reason": "Vendor-side supply signal only (incumbents building native MCP themselves this week), no buyer-pain evidence; one Freelancer.com hit (generic 'Connector: applications, APIs, webhooks, scripts' gig, EUR 8-30, 90 bids) too weak/undifferentiated to count as a second signal class."
+        },
+        {
+          "id": "c-2026-07-05-03",
+          "jtbd": "Solopreneur/freelancer wants automated invoice chasing / bookkeeping",
+          "status": "parked",
+          "signal_classes": ["exa_news"],
+          "evidence_count": 1,
+          "last_seen": "2026-07-05",
+          "evidence": [
+            {"quote": "Wesley Launches AI Bookkeeping Platform for CPA Firms in the US", "url": "https://dailyaibrief.com/news/wesley-launches-ai-bookkeeping-platform-for-cpa-firms-in-the-us-PzRh26Xw", "date": "2026-07-03", "author_type": "vendor/incumbent"}
+          ],
+          "kill_reason": "Vendor-launch news only; Freelancer.com hits were cheap human-labor data-entry gigs ($8-15/hr Tally/QuickBooks support), not SaaS-product demand; iTunes shows existing invoicing apps (Invoice Simple, FreshBooks) all rated 4.6-4.9, no rating-gap signal."
+        },
+        {
+          "id": "c-2026-07-05-04",
+          "jtbd": "SMB wants AI-assisted contract review / compliance checklist generation",
+          "status": "parked",
+          "signal_classes": ["exa_news"],
+          "evidence_count": 1,
+          "last_seen": "2026-07-05",
+          "evidence": [
+            {"quote": "Librari Raises $1.75M to Put an AI Contract Team Inside Every Growing Business", "url": "https://www.einpresswire.com/article/923517428/librari-raises-1-75m-to-put-an-ai-contract-team-inside-every-growing-business", "date": "2026-07-02", "author_type": "vendor/incumbent"}
+          ],
+          "kill_reason": "Vendor-funding news only; no community pain quote found; iTunes contract-review apps all too new (0-1 ratings) to show a gap."
+        },
+        {
+          "id": "c-2026-07-05-05",
+          "jtbd": "Small business owner wants an AI assistant for back-office admin",
+          "status": "parked",
+          "signal_classes": ["exa_news"],
+          "evidence_count": 1,
+          "last_seen": "2026-07-05",
+          "evidence": [
+            {"quote": "Turner Digital Consulting Launches Receptionist AI, Giving Small Businesses Enterprise-Grade Call Coverage for the First Time", "url": "https://aijourn.com/turner-digital-consulting-launches-receptionist-ai-giving-small-businesses-enterprise-grade-call-coverage-for-the-first-time/", "date": "2026-07-03", "author_type": "vendor/incumbent"}
+          ],
+          "kill_reason": "Vendor-launch news only, no buyer-pain quote found via HN, Freelancer, or Stack Exchange (0 relevant results)."
+        }
+      ],
+      "ideas_output": [],
+      "slack_message_ts": "1783230556.978119",
+      "sources_unreachable": [
+        "reddit.com (direct .json/.rss 403 from datacenter IP; Exa also rejects site:reddit.com with 'requested domains are not available: reddit.com')",
+        "api.github.com/search/* (environment proxy restricts to repo-scoped endpoints only: 'sessions are bound to their configured repositories')"
+      ]
     }
   ],
-  "clusters": [],
-  "domains_history": []
+  "clusters": [
+    {
+      "id": "c-2026-07-05-01",
+      "jtbd": "Developer who pays for an AI code-review tool (e.g. CodeRabbit) wants unthrottled, affordable automated review of AI-agent-generated PRs",
+      "status": "parked",
+      "signal_classes": ["hn_ask"],
+      "evidence_count": 1,
+      "last_seen": "2026-07-05"
+    },
+    {
+      "id": "c-2026-07-05-02",
+      "jtbd": "SMB/agency needs native Tool A <-> Tool B sync instead of Zapier",
+      "status": "parked",
+      "signal_classes": ["exa_news"],
+      "evidence_count": 1,
+      "last_seen": "2026-07-05"
+    },
+    {
+      "id": "c-2026-07-05-03",
+      "jtbd": "Solopreneur/freelancer wants automated invoice chasing / bookkeeping",
+      "status": "parked",
+      "signal_classes": ["exa_news"],
+      "evidence_count": 1,
+      "last_seen": "2026-07-05"
+    },
+    {
+      "id": "c-2026-07-05-04",
+      "jtbd": "SMB wants AI-assisted contract review / compliance checklist generation",
+      "status": "parked",
+      "signal_classes": ["exa_news"],
+      "evidence_count": 1,
+      "last_seen": "2026-07-05"
+    },
+    {
+      "id": "c-2026-07-05-05",
+      "jtbd": "Small business owner wants an AI assistant for back-office admin",
+      "status": "parked",
+      "signal_classes": ["exa_news"],
+      "evidence_count": 1,
+      "last_seen": "2026-07-05"
+    }
+  ],
+  "domains_history": [
+    {"date": "2026-07-05", "domains": ["Dev tools / AI-coding workflow", "Integration glue (horizontal)", "Solopreneur finance ops", "Legal / compliance ops for SMBs", "Agent-powered SMB ops automation"]}
+  ]
 }
