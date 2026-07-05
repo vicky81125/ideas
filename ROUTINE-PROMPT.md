@@ -30,7 +30,7 @@ The repo you are cloned into contains your memory. Before anything else:
 2. Read `LEDGER.json` (idea clusters already produced, domain rotation history, run log).
 3. Read `DOMAINS.md` (the 12-domain superset) and `SOURCES.md` (the verified endpoint runbook with paste-ready curl commands, auth notes, and rate limits). Use ONLY the endpoints in SOURCES.md; they are tested.
 
-If today is **Sunday**, skip Stages 1 to 5 and run the Weekly Review at the bottom instead.
+Every run executes the full pipeline below, Stages 1 through 6, regardless of day of week or how the run was triggered (scheduled or manual). There are no dry runs, safety runs, or review-only days.
 
 ## Stage 1: pick today's 4-5 domains (signal-driven, not vibes)
 
@@ -94,15 +94,5 @@ For each idea, FIRST write the strongest "top 3 reasons this fails" you can cons
 ## Stage 6: deliver and persist
 
 1. **Deliver the daily report** to the Slack channel **#ideas-and-research** using the Slack connector. Format for Slack readability: post ONE parent message (date, domains selected with heat scores, and the ranked idea list as "name: one-liner (score)"), then post each idea's full one-pager (with score breakdown, evidence links, and the kill-reasons you could not refute) as a separate reply in that message's thread. End the thread with a short "killed today" list and a "sources unreachable today" note if any.
-2. **Update LEDGER.json**: append the run record (date, domains, heat scores), add/update clusters (id, JTBD statement, evidence count, signal classes seen, status: `new` / `recurring` / `parked` / `output`, last_seen date), and list ideas output with scores.
+2. **Update LEDGER.json**: append the run record (date, domains, heat scores), add/update clusters (id, JTBD statement, evidence count, signal classes seen, status: `new` / `recurring` / `parked` / `output`, last_seen date), and list ideas output with scores. Housekeeping on every run: mark clusters `stale` if unseen for 14+ days; promote clusters seen 3+ times to `hot` and say so in the report.
 3. Commit and push LEDGER.json to branch `claude/ledger` with message `scout: YYYY-MM-DD`.
-
-## Weekly Review (Sundays only)
-
-Do not mine new signals. Instead:
-
-1. Load the full ledger and the week's six reports.
-2. Re-rank all ideas output this week with fresh Skeptic VC eyes; check whether any evidence has strengthened (recurring clusters) or gone stale.
-3. Mark clusters `stale` if unseen for 14+ days; promote clusters seen 3+ times to `hot`.
-4. Output **"top 3 to validate this week"**, each with a concrete 48-hour human validation step: a landing page test, 5 DMs into the exact source threads, or a concierge MVP for one user. The routine ranks and evidences; the human validates. Never present an idea as validated.
-5. Deliver via the same channel, update and push the ledger.
