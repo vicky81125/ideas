@@ -52,6 +52,7 @@ For each selected domain, run the compound-signal sweep (exact commands in SOURC
 3. **Review/complaint mining**: Exa with includeDomains g2.com or capterra.com: "<category or leading competitor>" plus "wish it" / "doesn't integrate with" / "switched from" / "workaround". Complaints from paying customers are a willingness-to-pay signal AND a pain signal; a described workaround is the MVP spec.
 4. **Competition and launch density**: Product Hunt homepage via r.jina.ai, plus GitHub repo search (in cloud, via the agentproxy passthrough per SOURCES.md).
 5. **App-store gaps** where the domain is consumer-shaped: iTunes Search API (rating counts vs average rating; big install base + sub-4.0 rating = care + bad experience).
+6. **Apify (best-effort, budget-gated): Upwork gigs + Reddit pain.** This restores the two classes the free stack can't reach: Upwork (quantified willingness-to-pay, the strongest signal we have) and Reddit (community pain). Apify is OPTIONAL and the run must be fully agnostic to it: **before any Apify call, run the preflight budget check in SOURCES.md; if remaining monthly credit is under $0.50, or APIFY_TOKEN is unset, SKIP Apify entirely and note "Apify skipped (budget/unset)" in the report.** Hard cap: **at most 2 Apify actor calls per whole run** (not per domain) to stay inside the $5/month free tier: spend them on the 1-2 highest-heat domains, Upwork first, then Reddit. Never let an Apify error, empty result, or exhausted budget fail the run or block delivery: capture what it returns, move on.
 
 **Never build evidence from vendor launches, funding announcements, or press coverage.** Those prove someone is building, not that anyone is buying. If a domain sweep yields only vendor news, report the domain as "no demand evidence found today" and move on.
 
@@ -60,12 +61,13 @@ For every pain point captured, record: verbatim quote, URL, date, best-guess aut
 ## Stage 3: cluster, dedupe, cross-validate
 
 - Cluster today's pain points by job-to-be-done (same buyer + same trigger + same desired outcome = one cluster), not by surface wording.
-- Merge against the ledger's existing clusters. If today's cluster matches an existing one: **update that cluster's evidence count and recency instead of re-proposing it**. A recurring cluster gains priority (mark it `recurring`, it is getting stronger), but it only re-enters the daily output if it was previously `parked` and the new evidence is materially stronger (new signal class, or explicit budget language).
-- Discard every cluster backed by only one signal class.
+- Merge against the ledger's existing clusters. If today's cluster matches an existing one: **update that cluster's evidence count and recency instead of re-proposing it**. A recurring cluster gains priority (mark it `recurring`, it is getting stronger).
+- **Promotion rule:** if a cluster that was on the Watchlist (Tier B, see Stage 5) picks up a NEW independent signal class today, it graduates to Conviction (Tier A) candidacy and gets a fresh one-pager. This is the ledger's main job: single-signal clusters accumulate across days until a second class confirms them.
+- Do NOT discard single-signal clusters. They are not killed; they become Watchlist candidates (Tier B). Only genuinely empty or vendor-news-only "clusters" are dropped.
 
-## Stage 4: idea synthesis (one-pager per surviving cluster)
+## Stage 4: idea synthesis (one-pager per cluster)
 
-Write each idea as a one-pager:
+Write a one-pager for every Conviction candidate (2+ signal classes) AND every Watchlist candidate (1 strong class). Watchlist one-pagers can be lighter but must still name the buyer, the evidence link, and what the missing second signal would be. Full template:
 
 - **Working name** and one-liner
 - **Named buyer**: role + industry, at "scheduling for tattoo studios" specificity. "Small businesses" is an automatic kill.
@@ -91,10 +93,15 @@ For each idea, FIRST write the strongest "top 3 reasons this fails" you can cons
 | Competition density | 10 | 1-2 small competitors with visible gaps = max; crowded = low; zero = low |
 | Distribution | 10 | A concrete channel Vicky can reach this buyer through this month |
 
-**Kill anything under 70.** Report the kills in one line each (name + top kill reason); do not write one-pagers for them.
+**Tiered output (this replaces the old binary kill):**
+- **Tier A — Conviction**: 2+ independent signal classes AND score ≥70. The "go build this" list. Full one-pager.
+- **Tier B — Watchlist**: exactly 1 strong signal class, OR score 55-69 with 2 classes. "Worth a look, needs one more signal." Lighter one-pager + explicit note of what the missing second signal would be. These persist in the ledger and auto-promote to Tier A when a second class confirms them on a later run.
+- **Killed**: score <55, or evidence is only vendor news, or the build fails the 3-4 week solo gate. One line each (name + top kill reason), no one-pager.
+
+The goal is that a normal day produces something actionable: even when Tier A is empty, Tier B gives Vicky things to watch and the ledger compounds them. Do NOT pad Tier A to look productive: a weak idea promoted to Conviction defeats the whole point. Be honest about which tier each idea earns.
 
 ## Stage 6: deliver and persist
 
-1. **Deliver the daily report** to the Slack channel **#personal_ideas** (channel ID C0BF7EDBV3L) using the Slack connector. Format for Slack readability: post ONE parent message (date, domains selected with heat scores, and the ranked idea list as "name: one-liner (score)"), then post each idea's full one-pager (with score breakdown, evidence links, and the kill-reasons you could not refute) as a separate reply in that message's thread. End the thread with a short "killed today" list and a "sources unreachable today" note if any.
+1. **Deliver the daily report** to the Slack channel **#personal_ideas** (channel ID C0BF7EDBV3L) using the Slack connector. Format for Slack readability: post ONE parent message (date, domains selected with heat scores, then **Tier A — Conviction** as "name: one-liner (score)" and **Tier B — Watchlist** as "name: one-liner (missing signal)"). Then post each Tier A one-pager as its own threaded reply (full: score breakdown, evidence links, kill-reasons you could not refute), followed by Tier B one-pagers (lighter). End the thread with a "killed today" list and a "sources unreachable / Apify status today" note. If posting to C0BF7EDBV3L fails (private channel; @Claude may not be a member yet), post to #ideas-and-research (C0BDZV55MLY) and lead with a line that the personal channel needs @Claude invited.
 2. **Update LEDGER.json**: append the run record (date, domains, heat scores), add/update clusters (id, JTBD statement, evidence count, signal classes seen, status: `new` / `recurring` / `parked` / `output`, last_seen date), and list ideas output with scores. Housekeeping on every run: mark clusters `stale` if unseen for 14+ days; promote clusters seen 3+ times to `hot` and say so in the report.
 3. Commit and push LEDGER.json to branch `claude/ledger` with message `scout: YYYY-MM-DD`.

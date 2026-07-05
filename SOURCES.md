@@ -88,6 +88,39 @@ Primary uses:
 
 **Vendor launch, funding, and press articles are NEVER demand evidence, whatever the source.** They prove supply, not pain. Do not build clusters from them.
 
+### Apify (APIFY_TOKEN): Upwork + Reddit, the classes the free stack can't reach
+FREE plan = **$5 platform credit per month**, hard budget. Actors verified working 2026-07-05. This is BEST-EFFORT and budget-gated: the run must never depend on it.
+
+**Preflight budget check (run FIRST, before any actor call):**
+```bash
+REMAIN=$(curl -s "https://api.apify.com/v2/users/me/limits" -H "Authorization: Bearer $APIFY_TOKEN" | python3 -c "import sys,json;d=json.load(sys.stdin)['data'];print(round(d['limits'].get('maxMonthlyUsageUsd',5)-d['current'].get('monthlyUsageUsd',0),3))" 2>/dev/null || echo 0)
+# If REMAIN < 0.50 (or APIFY_TOKEN unset), SKIP all Apify calls this run and note "Apify skipped (budget $REMAIN)".
+```
+Observed cost ≈ $0.04-0.05 per actor call with small maxItems. **Hard cap: 2 actor calls per whole run** (~$0.10/day ≈ $3/month, safely under $5). Spend on the highest-heat domains: Upwork first (WTP), then Reddit.
+
+**Upwork gigs (neatrat/upwork-job-scraper) — verified, returns real jobs with title+description:**
+```bash
+curl -s -X POST "https://api.apify.com/v2/acts/neatrat~upwork-job-scraper/run-sync-get-dataset-items?timeout=120&memory=1024" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d '{"searchQuery":"<domain keywords>","maxItems":15}'
+# fields: title, description, budget/hourly, skills. A recurring gig with a budget = a purchase order.
+```
+
+**Reddit pain (trudax/reddit-scraper-lite) — verified, returns posts with url+date:**
+```bash
+curl -s -X POST "https://api.apify.com/v2/acts/trudax~reddit-scraper-lite/run-sync-get-dataset-items?timeout=120&memory=1024" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d '{"searches":["<pain phrase> <domain>"],"type":"posts","sort":"new","maxItems":15,"maxPostCount":15,"maxComments":0,"proxy":{"useApifyProxy":true}}'
+```
+
+**X/Twitter (apidojo/tweet-scraper) — actor exists (65k users) but query tuning is finicky.** Best-effort only; use broad single pain phrases, not multi-term boolean. If it returns `noResults`, drop it silently, do not spend a second call retrying:
+```bash
+curl -s -X POST "https://api.apify.com/v2/acts/apidojo~tweet-scraper/run-sync-get-dataset-items?timeout=120&memory=1024" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d '{"searchTerms":["<single broad pain phrase>"],"maxItems":15,"sort":"Latest"}'
+```
+Other verified-available actors if ever needed (do not use without budget headroom): `powerai/g2-product-reviews-scraper`, `memo23/trustpilot-scraper-ppe` ($0.75/1k), `thewolves/appstore-reviews-scraper` ($0.10/1k).
+
 ### Reddit official OAuth script app (optional, free, 100 req/min)
 Only if REDDIT_CLIENT_ID/SECRET are set:
 ```bash
@@ -97,9 +130,9 @@ curl -s -A "idea-scout/1.0" -H "Authorization: Bearer $TOKEN" "https://oauth.red
 High-yield subreddits by category: r/smallbusiness, r/Entrepreneur (ops pain), r/ecommerce, r/shopify (integration/automation asks), r/SaaS, r/indiehackers (builder market), r/freelance (marketplace pain), r/productivity (saturated, look for gaps only), plus per-domain subs.
 
 ## Known dead ends: do not attempt
-- Reddit, all $0 paths (verified 2026-07-05): public `.json`/`.rss` 403 from datacenter IPs; r.jina.ai blocked by Reddit; Exa rejects reddit.com in includeDomains. The ONLY working path is the official OAuth script app (REDDIT_CLIENT_ID/SECRET env vars, see above). If those are unset, run without Reddit and use the Exa community domains instead.
-- X/Twitter: Exa rejects x.com; no free path.
-- Upwork: Cloudflare on both direct and Jina paths.
+- Reddit FREE $0 paths (verified 2026-07-05): public `.json`/`.rss` 403 from datacenter IPs; r.jina.ai blocked by Reddit; Exa rejects reddit.com in includeDomains. Working paths: Apify reddit-scraper-lite (budget-gated, above) or the official OAuth script app if creds are set.
+- X/Twitter FREE paths: Exa rejects x.com; no free path. Working path: Apify tweet-scraper (best-effort, above).
+- Upwork FREE paths: Cloudflare on direct and Jina. Working path: Apify upwork-job-scraper (above).
 - G2 / Capterra DIRECT scraping: CAPTCHA on both paths. Use Exa includeDomains g2.com/capterra.com instead (works, verified).
 - YouTube search via Jina: consent shell, no results. (Channel RSS `youtube.com/feeds/videos.xml?channel_id=...` works if specific channels are ever tracked.)
 - Product Hunt leaderboard direct: 403 (use the Jina path above, or a free PH GraphQL client token if ever added).
