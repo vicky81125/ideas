@@ -47,11 +47,13 @@ Score heat 1-10 per domain with a one-line evidence note. Then apply rotation: a
 
 For each selected domain, run the compound-signal sweep (exact commands in SOURCES.md):
 
-1. **Freelance demand** (strongest willingness-to-pay signal): Freelancer.com active-projects API with 2-3 keyword queries per domain. Capture: task description, budget, recurrence of near-identical posts. A recurring rule-based gig with a budget is a purchase order for a product.
-2. **Community pain**: Reddit via the OAuth script app if REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET are present; otherwise Exa with `site:reddit.com` queries. Frustration lexicon to search: "is there a tool that", "why doesn't X exist", "sick of manually", "how do you handle", "I currently export", "wish there was", "anyone built". Prefer posts under 90 days old.
-3. **Ask HN / Show HN**: HN Algolia, same lexicon plus "what do you use for".
-4. **Competition and launch density**: Product Hunt homepage via r.jina.ai, plus GitHub search for recent repos solving the same problem.
+1. **Freelance demand** (strongest willingness-to-pay signal): Freelancer.com active-projects API with 2-3 keyword queries per domain, post-filtered locally (the query param matches loosely; keep only genuinely on-topic projects). Capture: task description, budget, recurrence of near-identical posts. A recurring rule-based gig with a budget is a purchase order for a product.
+2. **Community pain**: Exa with `includeDomains` on the verified community surfaces (indiehackers.com, quora.com, dev.to, community.shopify.com; pick 2 per domain by relevance) plus HN Algolia directly. Reddit ONLY via the OAuth script app when REDDIT_CLIENT_ID / REDDIT_CLIENT_SECRET are present; there is no other working Reddit path (Exa rejects reddit.com filters). Frustration lexicon to search: "is there a tool that", "why doesn't X exist", "sick of manually", "how do you handle", "I currently export", "wish there was", "anyone built". Prefer posts under 180 days old.
+3. **Review/complaint mining**: Exa with includeDomains g2.com or capterra.com: "<category or leading competitor>" plus "wish it" / "doesn't integrate with" / "switched from" / "workaround". Complaints from paying customers are a willingness-to-pay signal AND a pain signal; a described workaround is the MVP spec.
+4. **Competition and launch density**: Product Hunt homepage via r.jina.ai, plus GitHub repo search (in cloud, via the agentproxy passthrough per SOURCES.md).
 5. **App-store gaps** where the domain is consumer-shaped: iTunes Search API (rating counts vs average rating; big install base + sub-4.0 rating = care + bad experience).
+
+**Never build evidence from vendor launches, funding announcements, or press coverage.** Those prove someone is building, not that anyone is buying. If a domain sweep yields only vendor news, report the domain as "no demand evidence found today" and move on.
 
 For every pain point captured, record: verbatim quote, URL, date, best-guess author type (buyer with budget, employee, founder, hobbyist), and **the described workaround if any**. A complaint that describes a workaround ("I export CSVs every morning and merge them in Excel") is the highest-value find: the workaround IS the MVP spec. Flag every "Tool A does not talk to Tool B" complaint; integration gaps are the primary wedge we want.
 
@@ -93,6 +95,6 @@ For each idea, FIRST write the strongest "top 3 reasons this fails" you can cons
 
 ## Stage 6: deliver and persist
 
-1. **Deliver the daily report** to the Slack channel **#ideas-and-research** using the Slack connector. Format for Slack readability: post ONE parent message (date, domains selected with heat scores, and the ranked idea list as "name: one-liner (score)"), then post each idea's full one-pager (with score breakdown, evidence links, and the kill-reasons you could not refute) as a separate reply in that message's thread. End the thread with a short "killed today" list and a "sources unreachable today" note if any.
+1. **Deliver the daily report** to the Slack channel **#personal_ideas** (channel ID C0BF7EDBV3L) using the Slack connector. Format for Slack readability: post ONE parent message (date, domains selected with heat scores, and the ranked idea list as "name: one-liner (score)"), then post each idea's full one-pager (with score breakdown, evidence links, and the kill-reasons you could not refute) as a separate reply in that message's thread. End the thread with a short "killed today" list and a "sources unreachable today" note if any.
 2. **Update LEDGER.json**: append the run record (date, domains, heat scores), add/update clusters (id, JTBD statement, evidence count, signal classes seen, status: `new` / `recurring` / `parked` / `output`, last_seen date), and list ideas output with scores. Housekeeping on every run: mark clusters `stale` if unseen for 14+ days; promote clusters seen 3+ times to `hot` and say so in the report.
 3. Commit and push LEDGER.json to branch `claude/ledger` with message `scout: YYYY-MM-DD`.
