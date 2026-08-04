@@ -27,18 +27,66 @@
         "REDDIT_CLIENT_SECRET": false
       },
       "domains_selected": [
-        {"domain": "Dev tools / AI-coding workflow", "heat": 9, "evidence": "HN: 57 stories + 5 Ask HN in 7d (query 'AI coding agent'/'code review bot'), far above all other domains; GitHub trending (via r.jina.ai fallback, api.github.com search blocked) dominated by agent tooling repos (alibaba/page-agent +742 stars/day, ChromeDevTools/chrome-devtools-mcp +304/day, ruvnet/ruflo +145/day)"},
-        {"domain": "Integration glue (horizontal)", "heat": 7, "evidence": "Exa news (last 7d): Pipedrive launched native MCP server, SnapLogic launched MCP Builder, Workato open-sourced 'Labs' hub, all this week -- incumbents racing to close native-integration gaps themselves"},
-        {"domain": "Solopreneur finance ops", "heat": 5, "evidence": "Exa news: Wesley AI bookkeeping platform launch (2026-07-03), InvoiceXpress AI invoicing launch, Tenity/infinity.swiss $3M accounting raise -- vendor-side heat, no buyer-pain evidence found"},
-        {"domain": "Legal / compliance ops for SMBs", "heat": 5, "evidence": "Exa news: Spellbook autonomous contract management launch, Librari $1.75M raise for SMB contract AI -- vendor-side heat only"},
-        {"domain": "Agent-powered SMB ops automation", "heat": 5, "evidence": "Exa news: Turner Digital Receptionist AI launch, Knowlix AI SME teammate launch, Pie $19.5M raise -- vendor-side heat only"},
-        {"domain": "E-commerce / DTC ad ops", "heat": 3, "evidence": "Exa news only Google Ads API/product-change announcements, no pain/demand signal; HN 0/0"},
-        {"domain": "Healthcare admin (non-clinical)", "heat": 3, "evidence": "Exa news mostly India govt HMIS rollout (not target buyer) + Commure Orchestrator (enterprise-funded); HN 0/0"},
-        {"domain": "Creator / newsletter tooling", "heat": 4, "evidence": "Exa news: Riverside newsletter launch, PostOnce crossposting tool launch; HN 0/0"},
-        {"domain": "Recruiting / HR ops", "heat": 4, "evidence": "Exa news: Folks/Fountain/Toast/PageUp AI recruiting launches (vendor heat); HN 1 story/0 ask"},
-        {"domain": "Field services / vertical CRM", "heat": 4, "evidence": "Exa news: ServiceTitan Max, BuildOps OpsAI, MioCommerce, Fieldcode, Vertex/Revin -- incumbents already deeply AI-integrated, high competition density; HN 0/0"},
-        {"domain": "Real estate ops", "heat": 4, "evidence": "Exa news: AI receptionist/CRM marketing content, mostly vendor fluff; HN 1 story/1 ask"},
-        {"domain": "EdTech / course ops", "heat": 2, "evidence": "Exa news mostly unrelated (HBCU partnership, compliance training); HN 0/0"}
+        {
+          "domain": "Dev tools / AI-coding workflow",
+          "heat": 9,
+          "evidence": "HN: 57 stories + 5 Ask HN in 7d (query 'AI coding agent'/'code review bot'), far above all other domains; GitHub trending (via r.jina.ai fallback, api.github.com search blocked) dominated by agent tooling repos (alibaba/page-agent +742 stars/day, ChromeDevTools/chrome-devtools-mcp +304/day, ruvnet/ruflo +145/day)"
+        },
+        {
+          "domain": "Integration glue (horizontal)",
+          "heat": 7,
+          "evidence": "Exa news (last 7d): Pipedrive launched native MCP server, SnapLogic launched MCP Builder, Workato open-sourced 'Labs' hub, all this week -- incumbents racing to close native-integration gaps themselves"
+        },
+        {
+          "domain": "Solopreneur finance ops",
+          "heat": 5,
+          "evidence": "Exa news: Wesley AI bookkeeping platform launch (2026-07-03), InvoiceXpress AI invoicing launch, Tenity/infinity.swiss $3M accounting raise -- vendor-side heat, no buyer-pain evidence found"
+        },
+        {
+          "domain": "Legal / compliance ops for SMBs",
+          "heat": 5,
+          "evidence": "Exa news: Spellbook autonomous contract management launch, Librari $1.75M raise for SMB contract AI -- vendor-side heat only"
+        },
+        {
+          "domain": "Agent-powered SMB ops automation",
+          "heat": 5,
+          "evidence": "Exa news: Turner Digital Receptionist AI launch, Knowlix AI SME teammate launch, Pie $19.5M raise -- vendor-side heat only"
+        },
+        {
+          "domain": "E-commerce / DTC ad ops",
+          "heat": 3,
+          "evidence": "Exa news only Google Ads API/product-change announcements, no pain/demand signal; HN 0/0"
+        },
+        {
+          "domain": "Healthcare admin (non-clinical)",
+          "heat": 3,
+          "evidence": "Exa news mostly India govt HMIS rollout (not target buyer) + Commure Orchestrator (enterprise-funded); HN 0/0"
+        },
+        {
+          "domain": "Creator / newsletter tooling",
+          "heat": 4,
+          "evidence": "Exa news: Riverside newsletter launch, PostOnce crossposting tool launch; HN 0/0"
+        },
+        {
+          "domain": "Recruiting / HR ops",
+          "heat": 4,
+          "evidence": "Exa news: Folks/Fountain/Toast/PageUp AI recruiting launches (vendor heat); HN 1 story/0 ask"
+        },
+        {
+          "domain": "Field services / vertical CRM",
+          "heat": 4,
+          "evidence": "Exa news: ServiceTitan Max, BuildOps OpsAI, MioCommerce, Fieldcode, Vertex/Revin -- incumbents already deeply AI-integrated, high competition density; HN 0/0"
+        },
+        {
+          "domain": "Real estate ops",
+          "heat": 4,
+          "evidence": "Exa news: AI receptionist/CRM marketing content, mostly vendor fluff; HN 1 story/1 ask"
+        },
+        {
+          "domain": "EdTech / course ops",
+          "heat": 2,
+          "evidence": "Exa news mostly unrelated (HBCU partnership, compliance training); HN 0/0"
+        }
       ],
       "rotation_note": "domains_history was empty entering this run (first full-pipeline run), so no rotation penalty applied to any domain.",
       "clusters_added": [
@@ -46,11 +94,18 @@
           "id": "c-2026-07-05-01",
           "jtbd": "Developer who pays for an AI code-review tool (e.g. CodeRabbit) wants unthrottled, affordable automated review of AI-agent-generated PRs",
           "status": "watchlist",
-          "signal_classes": ["hn_ask"],
+          "signal_classes": [
+            "hn_ask"
+          ],
           "evidence_count": 1,
           "last_seen": "2026-07-05",
           "evidence": [
-            {"quote": "I got an annual subscription to Code Rabbit but now they are throttling reviews to only 2 per hours! What are you guys using for code review? Obviously Codex/Claude GitHub connectors are not doing a good job and paying per use for Code Rabbit is rediculous expensive.", "url": "https://news.ycombinator.com/item?id=48461670", "date": "2026-06-09", "author_type": "paying buyer"}
+            {
+              "quote": "I got an annual subscription to Code Rabbit but now they are throttling reviews to only 2 per hours! What are you guys using for code review? Obviously Codex/Claude GitHub connectors are not doing a good job and paying per use for Code Rabbit is rediculous expensive.",
+              "url": "https://news.ycombinator.com/item?id=48461670",
+              "date": "2026-06-09",
+              "author_type": "paying buyer"
+            }
           ],
           "kill_reason": "Only one independent signal class found (HN Ask HN); no corroborating freelance gig, app-store gap, or second community source. Competitive set (CodeRabbit, GitHub Copilot code review, Greptile, Qodo) is entrenched/well-funded -- high risk even if a second signal appears."
         },
@@ -58,11 +113,18 @@
           "id": "c-2026-07-05-02",
           "jtbd": "SMB/agency needs native Tool A <-> Tool B sync instead of Zapier",
           "status": "killed",
-          "signal_classes": ["exa_news"],
+          "signal_classes": [
+            "exa_news"
+          ],
           "evidence_count": 1,
           "last_seen": "2026-07-05",
           "evidence": [
-            {"quote": "Pipedrive Launches MCP Server for AI Assistants; SnapLogic launches MCP Builder for AI agent integration; Workato Launches Open-Source 'Labs' Hub for AI-Driven Automation", "url": "https://martech360.com/news/stack-platforms/pipedrive-launches-native-mcp-server-bringing-crm-workflows-directly-into-ai-assistants/", "date": "2026-07-01", "author_type": "vendor/incumbent"}
+            {
+              "quote": "Pipedrive Launches MCP Server for AI Assistants; SnapLogic launches MCP Builder for AI agent integration; Workato Launches Open-Source 'Labs' Hub for AI-Driven Automation",
+              "url": "https://martech360.com/news/stack-platforms/pipedrive-launches-native-mcp-server-bringing-crm-workflows-directly-into-ai-assistants/",
+              "date": "2026-07-01",
+              "author_type": "vendor/incumbent"
+            }
           ],
           "kill_reason": "Vendor-side supply signal only (incumbents building native MCP themselves this week), no buyer-pain evidence; one Freelancer.com hit (generic 'Connector: applications, APIs, webhooks, scripts' gig, EUR 8-30, 90 bids) too weak/undifferentiated to count as a second signal class. Vendor-news-only per tiered-output rules: killed, not watchlist."
         },
@@ -70,11 +132,18 @@
           "id": "c-2026-07-05-03",
           "jtbd": "Solopreneur/freelancer wants automated invoice chasing / bookkeeping",
           "status": "killed",
-          "signal_classes": ["exa_news"],
+          "signal_classes": [
+            "exa_news"
+          ],
           "evidence_count": 1,
           "last_seen": "2026-07-05",
           "evidence": [
-            {"quote": "Wesley Launches AI Bookkeeping Platform for CPA Firms in the US", "url": "https://dailyaibrief.com/news/wesley-launches-ai-bookkeeping-platform-for-cpa-firms-in-the-us-PzRh26Xw", "date": "2026-07-03", "author_type": "vendor/incumbent"}
+            {
+              "quote": "Wesley Launches AI Bookkeeping Platform for CPA Firms in the US",
+              "url": "https://dailyaibrief.com/news/wesley-launches-ai-bookkeeping-platform-for-cpa-firms-in-the-us-PzRh26Xw",
+              "date": "2026-07-03",
+              "author_type": "vendor/incumbent"
+            }
           ],
           "kill_reason": "Vendor-launch news only; Freelancer.com hits were cheap human-labor data-entry gigs ($8-15/hr Tally/QuickBooks support), not SaaS-product demand; iTunes shows existing invoicing apps (Invoice Simple, FreshBooks) all rated 4.6-4.9, no rating-gap signal. Vendor-news-only per tiered-output rules: killed, not watchlist."
         },
@@ -82,11 +151,18 @@
           "id": "c-2026-07-05-04",
           "jtbd": "SMB wants AI-assisted contract review / compliance checklist generation",
           "status": "killed",
-          "signal_classes": ["exa_news"],
+          "signal_classes": [
+            "exa_news"
+          ],
           "evidence_count": 1,
           "last_seen": "2026-07-05",
           "evidence": [
-            {"quote": "Librari Raises $1.75M to Put an AI Contract Team Inside Every Growing Business", "url": "https://www.einpresswire.com/article/923517428/librari-raises-1-75-million-to-put-an-ai-contract-team-inside-every-growing-business", "date": "2026-07-02", "author_type": "vendor/incumbent"}
+            {
+              "quote": "Librari Raises $1.75M to Put an AI Contract Team Inside Every Growing Business",
+              "url": "https://www.einpresswire.com/article/923517428/librari-raises-1-75-million-to-put-an-ai-contract-team-inside-every-growing-business",
+              "date": "2026-07-02",
+              "author_type": "vendor/incumbent"
+            }
           ],
           "kill_reason": "Vendor-funding news only; no community pain quote found; iTunes contract-review apps all too new (0-1 ratings) to show a gap. Vendor-news-only per tiered-output rules: killed, not watchlist."
         },
@@ -94,11 +170,18 @@
           "id": "c-2026-07-05-05",
           "jtbd": "Small business owner wants an AI assistant for back-office admin",
           "status": "killed",
-          "signal_classes": ["exa_news"],
+          "signal_classes": [
+            "exa_news"
+          ],
           "evidence_count": 1,
           "last_seen": "2026-07-05",
           "evidence": [
-            {"quote": "Turner Digital Consulting Launches Receptionist AI, Giving Small Businesses Enterprise-Grade Call Coverage for the First Time", "url": "https://aijourn.com/turner-digital-consulting-launches-receptionist-ai-giving-small-businesses-enterprise-grade-call-coverage-for-the-first-time/", "date": "2026-07-03", "author_type": "vendor/incumbent"}
+            {
+              "quote": "Turner Digital Consulting Launches Receptionist AI, Giving Small Businesses Enterprise-Grade Call Coverage for the First Time",
+              "url": "https://aijourn.com/turner-digital-consulting-launches-receptionist-ai-giving-small-businesses-enterprise-grade-call-coverage-for-the-first-time/",
+              "date": "2026-07-03",
+              "author_type": "vendor/incumbent"
+            }
           ],
           "kill_reason": "Vendor-launch news only, no buyer-pain quote found via HN, Freelancer, or Stack Exchange (0 relevant results). Vendor-news-only per tiered-output rules: killed, not watchlist."
         }
@@ -123,18 +206,90 @@
         "REDDIT_CLIENT_SECRET": false
       },
       "domains_selected": [
-        {"domain": "Dev tools / AI-coding workflow", "raw_heat": 9, "rotation_penalty": 0, "heat": 9, "evidence": "HN: 39 'code review' stories + 5 Ask HN, 276 'ai agent' stories + 19 Ask HN in 7d, far above all other domains; exempt from rotation penalty (raw >=8) despite being covered 2026-07-05"},
-        {"domain": "E-commerce / DTC ad ops", "raw_heat": 6, "rotation_penalty": 0, "heat": 6, "evidence": "HN: 12 'meta ads' stories + 1 Ask HN, 7 'shopify' stories; Exa news: Triple Whale/Elevar attribution-platform analysis pieces (demand-adjacent, not pure vendor launch)"},
-        {"domain": "Real estate ops", "raw_heat": 6, "rotation_penalty": 0, "heat": 6, "evidence": "HN: 9 'real estate' stories + 3 Ask HN; Exa news: Inman 'You Didn't Lose That Client To A Better Agent, You Lost Them To Silence' (buyer-pain-framed article, not just vendor launch)"},
-        {"domain": "Creator / newsletter tooling", "raw_heat": 5, "rotation_penalty": 0, "heat": 5, "evidence": "HN: 32 'newsletter' stories + 3 Ask HN"},
-        {"domain": "Recruiting / HR ops", "raw_heat": 5, "rotation_penalty": 0, "heat": 5, "evidence": "HN: 11 'recruiting' stories + 3 Ask HN"},
-        {"domain": "Field services / vertical CRM", "raw_heat": 4, "rotation_penalty": 0, "heat": 4, "evidence": "HN: 1 'field service' story; Exa news: Roooster AI launch, Fieldcode expansion, Canadian scheduling/CRM startup piece -- not selected, below cutoff"},
-        {"domain": "Agent-powered SMB ops automation", "raw_heat": 6, "rotation_penalty": -3, "heat": 3, "evidence": "HN 'ai agent' heat overlaps heavily with dev-tools query, not back-office-specific; Exa news: Knowlix AI Teammate launch (vendor); covered 2026-07-05, raw <8 so full rotation penalty applied"},
-        {"domain": "Integration glue (horizontal)", "raw_heat": 6, "rotation_penalty": -3, "heat": 3, "evidence": "HN: 16 'integration api' stories + 1 Ask HN, 0 'zapier'; Exa news: Pipedrive MCP, Workato Labs (vendor); covered 2026-07-05, raw <8 so full rotation penalty applied"},
-        {"domain": "EdTech / course ops", "raw_heat": 2, "rotation_penalty": 0, "heat": 2, "evidence": "HN: 1 'course creator' story; Exa news: Appy Pie Course Builder launch, LMS pricing listicles (vendor)"},
-        {"domain": "Healthcare admin (non-clinical)", "raw_heat": 2, "rotation_penalty": 0, "heat": 2, "evidence": "HN: 0 'patient intake'; Exa news: HealthLynked AI agent launch, SimplyBook AI assistant launch (vendor)"},
-        {"domain": "Solopreneur finance ops", "raw_heat": 5, "rotation_penalty": -3, "heat": 2, "evidence": "HN: 5 'invoicing' stories; Exa news: CPA Practice Advisor 'schedule C stack' piece (demand-adjacent) + QuickBooks AI content marketing (vendor); covered 2026-07-05, raw <8 so full rotation penalty applied"},
-        {"domain": "Legal / compliance ops for SMBs", "raw_heat": 4, "rotation_penalty": -3, "heat": 1, "evidence": "HN: 1 'contract review' story; Exa news: Spellbook autonomous contract mgmt, Librari $1.75M raise (vendor); covered 2026-07-05, raw <8 so full rotation penalty applied"}
+        {
+          "domain": "Dev tools / AI-coding workflow",
+          "raw_heat": 9,
+          "rotation_penalty": 0,
+          "heat": 9,
+          "evidence": "HN: 39 'code review' stories + 5 Ask HN, 276 'ai agent' stories + 19 Ask HN in 7d, far above all other domains; exempt from rotation penalty (raw >=8) despite being covered 2026-07-05"
+        },
+        {
+          "domain": "E-commerce / DTC ad ops",
+          "raw_heat": 6,
+          "rotation_penalty": 0,
+          "heat": 6,
+          "evidence": "HN: 12 'meta ads' stories + 1 Ask HN, 7 'shopify' stories; Exa news: Triple Whale/Elevar attribution-platform analysis pieces (demand-adjacent, not pure vendor launch)"
+        },
+        {
+          "domain": "Real estate ops",
+          "raw_heat": 6,
+          "rotation_penalty": 0,
+          "heat": 6,
+          "evidence": "HN: 9 'real estate' stories + 3 Ask HN; Exa news: Inman 'You Didn't Lose That Client To A Better Agent, You Lost Them To Silence' (buyer-pain-framed article, not just vendor launch)"
+        },
+        {
+          "domain": "Creator / newsletter tooling",
+          "raw_heat": 5,
+          "rotation_penalty": 0,
+          "heat": 5,
+          "evidence": "HN: 32 'newsletter' stories + 3 Ask HN"
+        },
+        {
+          "domain": "Recruiting / HR ops",
+          "raw_heat": 5,
+          "rotation_penalty": 0,
+          "heat": 5,
+          "evidence": "HN: 11 'recruiting' stories + 3 Ask HN"
+        },
+        {
+          "domain": "Field services / vertical CRM",
+          "raw_heat": 4,
+          "rotation_penalty": 0,
+          "heat": 4,
+          "evidence": "HN: 1 'field service' story; Exa news: Roooster AI launch, Fieldcode expansion, Canadian scheduling/CRM startup piece -- not selected, below cutoff"
+        },
+        {
+          "domain": "Agent-powered SMB ops automation",
+          "raw_heat": 6,
+          "rotation_penalty": -3,
+          "heat": 3,
+          "evidence": "HN 'ai agent' heat overlaps heavily with dev-tools query, not back-office-specific; Exa news: Knowlix AI Teammate launch (vendor); covered 2026-07-05, raw <8 so full rotation penalty applied"
+        },
+        {
+          "domain": "Integration glue (horizontal)",
+          "raw_heat": 6,
+          "rotation_penalty": -3,
+          "heat": 3,
+          "evidence": "HN: 16 'integration api' stories + 1 Ask HN, 0 'zapier'; Exa news: Pipedrive MCP, Workato Labs (vendor); covered 2026-07-05, raw <8 so full rotation penalty applied"
+        },
+        {
+          "domain": "EdTech / course ops",
+          "raw_heat": 2,
+          "rotation_penalty": 0,
+          "heat": 2,
+          "evidence": "HN: 1 'course creator' story; Exa news: Appy Pie Course Builder launch, LMS pricing listicles (vendor)"
+        },
+        {
+          "domain": "Healthcare admin (non-clinical)",
+          "raw_heat": 2,
+          "rotation_penalty": 0,
+          "heat": 2,
+          "evidence": "HN: 0 'patient intake'; Exa news: HealthLynked AI agent launch, SimplyBook AI assistant launch (vendor)"
+        },
+        {
+          "domain": "Solopreneur finance ops",
+          "raw_heat": 5,
+          "rotation_penalty": -3,
+          "heat": 2,
+          "evidence": "HN: 5 'invoicing' stories; Exa news: CPA Practice Advisor 'schedule C stack' piece (demand-adjacent) + QuickBooks AI content marketing (vendor); covered 2026-07-05, raw <8 so full rotation penalty applied"
+        },
+        {
+          "domain": "Legal / compliance ops for SMBs",
+          "raw_heat": 4,
+          "rotation_penalty": -3,
+          "heat": 1,
+          "evidence": "HN: 1 'contract review' story; Exa news: Spellbook autonomous contract mgmt, Librari $1.75M raise (vendor); covered 2026-07-05, raw <8 so full rotation penalty applied"
+        }
       ],
       "rotation_note": "Applied -3 to the 5 domains covered 2026-07-05 (Dev tools, Integration glue, Solopreneur finance, Legal/compliance, Agent-powered SMB ops); Dev tools' raw heat (9) cleared the >=8 exemption so it was selected again anyway. The other 4 dropped out of the top 5, replaced by E-commerce/DTC, Real estate, Creator/newsletter, Recruiting/HR.",
       "clusters_added": [
@@ -144,22 +299,65 @@
           "status": "output",
           "tier": "A",
           "score": 78,
-          "signal_classes": ["community_pain_shopify_forum", "wtp_proxy_g2_freelancer"],
+          "signal_classes": [
+            "community_pain_shopify_forum",
+            "wtp_proxy_g2_freelancer"
+          ],
           "evidence_count": 6,
           "last_seen": "2026-07-06",
           "evidence": [
-            {"quote": "Facebook and Google Ads do not appear in reports -- UTM-tagged traffic from Facebook and Google Ads was not appearing in Shopify's marketing attribution reports", "url": "https://community.shopify.com/t/facebook-and-google-ads-do-not-appear-in-reports/56257/8", "date": "2026-02-27", "author_type": "buyer/merchant"},
-            {"quote": "Meta Pixel shows 'Connected' in Shopify but Purchase event is not firing in Events Manager / Ads Manager", "url": "https://community.shopify.com/t/meta-pixel-shows-connected-in-shopify-but-purchase-event-is-not-firing-in-events-manager-ads-manager/588255/4", "date": "2026-02-14", "author_type": "buyer/merchant"},
-            {"quote": "Shopify dashboard showing wrong data + missing sales in tracking (Meta / Triple Whale) -- 1.3k views, 15 users on the thread", "url": "https://community.shopify.com/t/shopify-dashboard-showing-wrong-data-missing-sales-in-tracking-meta-triple-whale/570102/15", "date": "2026-05-09", "author_type": "buyer/merchant"},
-            {"quote": "Shopify is generally treated as the source of truth for actual revenue, while ad platform conversions rarely match Shopify sales exactly", "url": "https://community.shopify.com/t/what-s-the-biggest-challenge-in-tracking-shopify-conversions-today/637311/2", "date": "2026-06-16", "author_type": "buyer/merchant"},
-            {"quote": "Meta Ads Integration Testing thread: Pixel + CAPI dedup by event_id, common mistakes include missing event_id and case mismatches in event name", "url": "https://community.shopify.com/t/meta-ads-integration-testing/593078", "date": "2026-03-23", "author_type": "buyer/merchant"},
-            {"quote": "Triple Whale G2 reviews: 481 reviews, 4.5/5 -- confirms real paid spend in the attribution-tooling category", "url": "https://www.g2.com/it/products/triple-whale/reviews", "date": "2026-05-07", "author_type": "paying buyer (aggregate)"}
+            {
+              "quote": "Facebook and Google Ads do not appear in reports -- UTM-tagged traffic from Facebook and Google Ads was not appearing in Shopify's marketing attribution reports",
+              "url": "https://community.shopify.com/t/facebook-and-google-ads-do-not-appear-in-reports/56257/8",
+              "date": "2026-02-27",
+              "author_type": "buyer/merchant"
+            },
+            {
+              "quote": "Meta Pixel shows 'Connected' in Shopify but Purchase event is not firing in Events Manager / Ads Manager",
+              "url": "https://community.shopify.com/t/meta-pixel-shows-connected-in-shopify-but-purchase-event-is-not-firing-in-events-manager-ads-manager/588255/4",
+              "date": "2026-02-14",
+              "author_type": "buyer/merchant"
+            },
+            {
+              "quote": "Shopify dashboard showing wrong data + missing sales in tracking (Meta / Triple Whale) -- 1.3k views, 15 users on the thread",
+              "url": "https://community.shopify.com/t/shopify-dashboard-showing-wrong-data-missing-sales-in-tracking-meta-triple-whale/570102/15",
+              "date": "2026-05-09",
+              "author_type": "buyer/merchant"
+            },
+            {
+              "quote": "Shopify is generally treated as the source of truth for actual revenue, while ad platform conversions rarely match Shopify sales exactly",
+              "url": "https://community.shopify.com/t/what-s-the-biggest-challenge-in-tracking-shopify-conversions-today/637311/2",
+              "date": "2026-06-16",
+              "author_type": "buyer/merchant"
+            },
+            {
+              "quote": "Meta Ads Integration Testing thread: Pixel + CAPI dedup by event_id, common mistakes include missing event_id and case mismatches in event name",
+              "url": "https://community.shopify.com/t/meta-ads-integration-testing/593078",
+              "date": "2026-03-23",
+              "author_type": "buyer/merchant"
+            },
+            {
+              "quote": "Triple Whale G2 reviews: 481 reviews, 4.5/5 -- confirms real paid spend in the attribution-tooling category",
+              "url": "https://www.g2.com/it/products/triple-whale/reviews",
+              "date": "2026-05-07",
+              "author_type": "paying buyer (aggregate)"
+            }
           ],
           "freelancer_evidence": [
-            {"title": "Resolve GA4 Landing Page Attribution Issue", "budget": "30-250 EUR"},
-            {"title": "Lead Tracking System Setup", "budget": "1500-3000 USD"}
+            {
+              "title": "Resolve GA4 Landing Page Attribution Issue",
+              "budget": "30-250 EUR"
+            },
+            {
+              "title": "Lead Tracking System Setup",
+              "budget": "1500-3000 USD"
+            }
           ],
-          "competitors": ["Triple Whale (g2.com/it/products/triple-whale/reviews)", "Elevar", "Wetracked.io (g2.com/it/products/wetracked-io/reviews)"]
+          "competitors": [
+            "Triple Whale (g2.com/it/products/triple-whale/reviews)",
+            "Elevar",
+            "Wetracked.io (g2.com/it/products/wetracked-io/reviews)"
+          ]
         }
       ],
       "clusters_updated": [
@@ -169,31 +367,78 @@
           "status": "output",
           "tier": "B",
           "score": 65,
-          "signal_classes": ["hn_ask", "community_pain_devto"],
+          "signal_classes": [
+            "hn_ask",
+            "community_pain_devto"
+          ],
           "evidence_count": 2,
           "recurring": true,
           "last_seen": "2026-07-06",
           "promotion_note": "Picked up a second independent signal class today (dev.to community pain), triggering re-scoring per Stage 3 promotion rule. Scored 65 (Tier B) rather than Tier A because the same evidence revealed a free working OSS clone (Codra, dev.to/devarshishimpi/...) launched 2 weeks ago solving this exact JTBD, plus alibaba/open-code-review (OSS, launched this week) -- competition density capped at 2/10.",
           "new_evidence": [
-            {"quote": "I kept hitting usage limits mid-week during deep building sessions... access still depended on somebody else's weekly allowance, and centralized platforms can change whenever the company behind them decides to. So I built one [Codra, self-hosted OSS AI review engine].", "url": "https://dev.to/devarshishimpi/i-wanted-ai-code-review-i-could-actually-own-so-i-built-codra-349n", "date": "2026-06-23", "author_type": "buyer-turned-builder"}
+            {
+              "quote": "I kept hitting usage limits mid-week during deep building sessions... access still depended on somebody else's weekly allowance, and centralized platforms can change whenever the company behind them decides to. So I built one [Codra, self-hosted OSS AI review engine].",
+              "url": "https://dev.to/devarshishimpi/i-wanted-ai-code-review-i-could-actually-own-so-i-built-codra-349n",
+              "date": "2026-06-23",
+              "author_type": "buyer-turned-builder"
+            }
           ],
           "missing_signal": "A G2/Capterra review from a paying CodeRabbit customer describing the same throttling complaint, or an Upwork/Freelancer gig with budget attached for self-hosted PR-review setup. Today's Apify Upwork query for 'AI code review automation' returned no on-topic hits (generic/unfiltered feed)."
         }
       ],
       "clusters_status_carried": [
-        {"id": "c-2026-07-05-02", "status": "killed", "last_seen": "2026-07-05", "note": "Not in today's selected domains (Integration glue rotated out); no new evidence gathered, status unchanged."},
-        {"id": "c-2026-07-05-03", "status": "killed", "last_seen": "2026-07-05", "note": "Not in today's selected domains (Solopreneur finance rotated out); no new evidence gathered, status unchanged."},
-        {"id": "c-2026-07-05-04", "status": "killed", "last_seen": "2026-07-05", "note": "Not in today's selected domains (Legal/compliance rotated out); no new evidence gathered, status unchanged."},
-        {"id": "c-2026-07-05-05", "status": "killed", "last_seen": "2026-07-05", "note": "Not in today's selected domains (Agent-powered SMB ops rotated out); no new evidence gathered, status unchanged."}
+        {
+          "id": "c-2026-07-05-02",
+          "status": "killed",
+          "last_seen": "2026-07-05",
+          "note": "Not in today's selected domains (Integration glue rotated out); no new evidence gathered, status unchanged."
+        },
+        {
+          "id": "c-2026-07-05-03",
+          "status": "killed",
+          "last_seen": "2026-07-05",
+          "note": "Not in today's selected domains (Solopreneur finance rotated out); no new evidence gathered, status unchanged."
+        },
+        {
+          "id": "c-2026-07-05-04",
+          "status": "killed",
+          "last_seen": "2026-07-05",
+          "note": "Not in today's selected domains (Legal/compliance rotated out); no new evidence gathered, status unchanged."
+        },
+        {
+          "id": "c-2026-07-05-05",
+          "status": "killed",
+          "last_seen": "2026-07-05",
+          "note": "Not in today's selected domains (Agent-powered SMB ops rotated out); no new evidence gathered, status unchanged."
+        }
       ],
       "ideas_output": [
-        {"name": "ShopMatch Reconcile", "cluster_id": "c-2026-07-06-01", "tier": "A", "score": 78},
-        {"name": "OpenReview Relay", "cluster_id": "c-2026-07-05-01", "tier": "B", "score": 65}
+        {
+          "name": "ShopMatch Reconcile",
+          "cluster_id": "c-2026-07-06-01",
+          "tier": "A",
+          "score": 78
+        },
+        {
+          "name": "OpenReview Relay",
+          "cluster_id": "c-2026-07-05-01",
+          "tier": "B",
+          "score": 65
+        }
       ],
       "killed_today": [
-        {"domain": "Real estate ops", "reason": "All community-pain hits (indiehackers.com) were builders' own 'I built X' launch posts (CloseHive, PitchGale, an outbound-automation platform) -- supply-side signal, not buyer complaints. No demand evidence found today."},
-        {"domain": "Creator / newsletter tooling", "reason": "All dev.to/indiehackers hits were solo founders' 'I built a repurposing/cross-posting tool' posts, zero independent buyer-pain quotes. No demand evidence found today."},
-        {"domain": "Recruiting / HR ops", "reason": "All indiehackers hits were founders describing their own ATS/screening tools they built and shipped, not buyers complaining. No demand evidence found today."}
+        {
+          "domain": "Real estate ops",
+          "reason": "All community-pain hits (indiehackers.com) were builders' own 'I built X' launch posts (CloseHive, PitchGale, an outbound-automation platform) -- supply-side signal, not buyer complaints. No demand evidence found today."
+        },
+        {
+          "domain": "Creator / newsletter tooling",
+          "reason": "All dev.to/indiehackers hits were solo founders' 'I built a repurposing/cross-posting tool' posts, zero independent buyer-pain quotes. No demand evidence found today."
+        },
+        {
+          "domain": "Recruiting / HR ops",
+          "reason": "All indiehackers hits were founders describing their own ATS/screening tools they built and shipped, not buyers complaining. No demand evidence found today."
+        }
       ],
       "slack_message_ts": "1783300001.178579",
       "sources_unreachable": [
@@ -201,6 +446,248 @@
         "api.github.com/search/* (environment proxy still blocks even via agentproxy passthrough: 'sessions are bound to their configured repositories'; fell back to r.jina.ai GitHub trending page)"
       ],
       "apify_status": "Budget check passed ($4.775 remaining pre-run, hard floor $0.50). Used both calls in the 2-call hard cap: Upwork 'AI code review automation' returned 40 items, all off-topic (generic lead-gen/scraping gigs, no on-topic hits after post-filtering); Reddit 'shopify meta ads tracking not working' timed out client-side after 120s, empty dataset. Post-run budget: $4.609 remaining. No further Apify calls made."
+    },
+    {
+      "date": "2026-08-04",
+      "type": "daily_full_pipeline",
+      "note": "First run since 2026-07-06 (29-day gap in scheduling; no run history in between). Rotation lookback ('last 3 runs') still points at the two 2026-07-05/07-06 domain sets since only 2 domain-selection runs exist in domains_history, so 9 of 12 domains took the -3 rotation penalty despite the long real-world gap. Apify: both hard-capped actor calls spent on Upwork (ecom_ads domain, two query variants) and both returned 0 items; Reddit call skipped (cap reached). No new qualifying cluster found today; existing Tier A (ShopMatch Reconcile) reconfirmed with fresh July community evidence, existing Tier B (OpenReview Relay / Claude Code quota tool) reconfirmed but competition has visibly thickened (3 more point-solutions found: Bifrost, Subtask, Luigis-meter/quota-gauge tools) with no new signal class, so it stays Watchlist. Integration glue, Field services, and Recruiting/HR domains all mined but yielded only vendor-comparison content or builder self-promotion posts -- no buyer-pain quotes -- so no clusters were created for them.",
+      "env_check": {
+        "EXA_API_KEY": true,
+        "JINA_API_KEY": true,
+        "GITHUB_TOKEN": true,
+        "APIFY_TOKEN": true,
+        "REDDIT_CLIENT_ID": false,
+        "REDDIT_CLIENT_SECRET": false
+      },
+      "domains_selected": [
+        {
+          "domain": "Dev tools / AI-coding workflow",
+          "raw_heat": 9,
+          "rotation_penalty": 0,
+          "heat": 9,
+          "evidence": "HN: 37 'ai coding agent' stories + 4 Ask HN in 7d; Exa news: GitHub blog piece on turning giant AI-generated PRs into reviewable stacks (demand-adjacent), Copilot code-review GA (vendor). Exempt from rotation penalty (raw >=8) despite being covered both prior runs."
+        },
+        {
+          "domain": "E-commerce / DTC ad ops",
+          "raw_heat": 7,
+          "rotation_penalty": -3,
+          "heat": 4,
+          "evidence": "HN: 20 'meta ads' stories + 3 Ask HN; Exa news: Triple Whale attribution-platform review pieces (demand-adjacent). Covered 2026-07-06, raw <8 so full rotation penalty applied."
+        },
+        {
+          "domain": "Integration glue (horizontal)",
+          "raw_heat": 7,
+          "rotation_penalty": -3,
+          "heat": 4,
+          "evidence": "HN: 16 'integration api' stories + 2 Ask HN; Exa news: Alloy Automation 'built for operators who've outgrown Zapier' piece, Shopify Flow 4.0 forcing automation rethink (both demand-adjacent). Covered 2026-07-05, raw <8 so full rotation penalty applied."
+        },
+        {
+          "domain": "Field services / vertical CRM",
+          "raw_heat": 3,
+          "rotation_penalty": 0,
+          "heat": 3,
+          "evidence": "HN: 4 'field service' stories + 1 Ask HN; Exa news: Bridgit AI workforce-planning launch, NOSO Labs YC S25 launch, Salesforce field-service talent-crisis research piece (vendor/research, not buyer pain). Never covered before, no rotation penalty."
+        },
+        {
+          "domain": "Recruiting / HR ops",
+          "raw_heat": 6,
+          "rotation_penalty": -3,
+          "heat": 3,
+          "evidence": "HN: 19 'hiring' stories + 5 Ask HN; Exa news: Unstop/Saramin AI recruiting agent launches (vendor). Covered 2026-07-06, raw <8 so full rotation penalty applied."
+        },
+        {
+          "domain": "Real estate ops",
+          "raw_heat": 5,
+          "rotation_penalty": -3,
+          "heat": 2,
+          "evidence": "HN: 12 'real estate' stories + 1 Ask HN; Exa news: RealAnalytica/Rechat/Inman-Lofty AI launches (vendor). Covered 2026-07-06."
+        },
+        {
+          "domain": "Creator / newsletter tooling",
+          "raw_heat": 5,
+          "rotation_penalty": -3,
+          "heat": 2,
+          "evidence": "HN: 20 'newsletter' stories + 0 Ask HN; Exa news: Beehiiv Copilot/MCP launches (vendor). Covered 2026-07-06."
+        },
+        {
+          "domain": "Healthcare admin (non-clinical)",
+          "raw_heat": 2,
+          "rotation_penalty": 0,
+          "heat": 2,
+          "evidence": "HN: 1 'healthcare admin' story; Exa news: Akido AI patient-intake expansion, MUSC Health AI access launch (vendor). Never covered before."
+        },
+        {
+          "domain": "EdTech / course ops",
+          "raw_heat": 2,
+          "rotation_penalty": 0,
+          "heat": 2,
+          "evidence": "HN: 2 'course creator' stories + 1 Ask HN; Exa news: LearnWorlds/course-platform review content, Skool community post (not pain). Never covered before."
+        },
+        {
+          "domain": "Solopreneur finance ops",
+          "raw_heat": 3,
+          "rotation_penalty": -3,
+          "heat": 0,
+          "evidence": "HN: 4 'invoicing' stories; Exa news: Jupid/Halper AI-accounting integration, Norman Finance review content (vendor). Covered 2026-07-05."
+        },
+        {
+          "domain": "Legal / compliance ops for SMBs",
+          "raw_heat": 2,
+          "rotation_penalty": -3,
+          "heat": 0,
+          "evidence": "HN: 1 'contract review' story; Exa news: Agiloft Astra launch, Vanta contract-AI update (vendor). Covered 2026-07-05."
+        },
+        {
+          "domain": "Agent-powered SMB ops automation",
+          "raw_heat": 2,
+          "rotation_penalty": -3,
+          "heat": 0,
+          "evidence": "HN: 0 'small business automation' stories; Exa news: Genius AI $44M raise, Xero XeroForce launch (vendor). Covered 2026-07-05."
+        }
+      ],
+      "rotation_note": "domains_history has 2 prior entries (2026-07-05, 2026-07-06) covering 9 distinct domains between them; applied -3 to all 9 per the 'last 3 runs' rule (literal run-count basis, not time-decayed, per ROUTINE-PROMPT.md Stage 1). Dev tools cleared the raw>=8 exemption. Selected top 5 post-penalty: Dev tools (9), E-commerce/DTC (4), Integration glue (4), Field services (3, tie broken by never-covered/fresh-domain preference), Recruiting/HR (3).",
+      "clusters_updated": [
+        {
+          "id": "c-2026-07-05-01",
+          "jtbd": "Developer who pays for an AI code-review tool (e.g. CodeRabbit) or uses Claude Code directly wants unthrottled, affordable automated review without hitting quota/rate limits",
+          "status": "output",
+          "tier": "B",
+          "score": 64,
+          "signal_classes": [
+            "hn_ask",
+            "community_pain_devto"
+          ],
+          "evidence_count": 7,
+          "recurring": true,
+          "last_seen": "2026-08-04",
+          "reconfirmation_note": "No new independent signal class found today (still hn_ask + community_pain_devto), so stays Watchlist per the promotion rule. Pain evidence got stronger and more specific (quantified 429 rates, token-cost breakdowns) but competition also thickened materially: at least 3 more point-solutions surfaced today (Bifrost key-pooling proxy, Subtask multi-LLM router, a Claude-Code-quota menu-bar gauge / 'Luigis-meter' statusline tool), on top of the Codra OSS clone found 2026-07-06. This cluster is now bordering on Killed for competitive saturation -- flag for reassessment if no differentiating signal (e.g. a paying-customer G2 complaint or an Upwork/Freelancer gig with budget) appears within the next few sightings.",
+          "new_evidence": [
+            {
+              "quote": "Our internal PR-review bot was getting 429'd by Anthropic between 9am and 11am Sydney time. We dropped Bifrost in front, pooled four keys, and the 429 rate fell from 8.2% to 0.07% in a fortnight.",
+              "url": "https://dev.to/claire_nguyen/our-pr-review-bot-kept-hitting-429s-bifrost-key-pooling-fixed-it-4m9f",
+              "date": "2026-05-28",
+              "author_type": "buyer/engineer (workaround-builder)"
+            },
+            {
+              "quote": "On April 12, 2026, two of Hacker News's top three stories were about the same product failing the same way. A 543-point thread documented Max subscribers burning through their entire weekly allocation in a single afternoon.",
+              "url": "https://dev.to/max_quimby/claude-code-quota-limits-are-breaking-workflows-3f6i",
+              "date": "2026-04-15",
+              "author_type": "buyer (aggregator/observer)"
+            },
+            {
+              "quote": "I ran five reviewer agents over a 16K-token PR. The naive setup cost $1.32. Two architectural changes brought it to $0.49.",
+              "url": "https://dev.to/andreagriffiths11/stop-paying-for-the-same-tokens-twice-geh",
+              "date": "2026-06-19",
+              "author_type": "buyer/engineer"
+            },
+            {
+              "quote": "Show HN: macOS menu bar gauges for your Claude Code quota (69 points)",
+              "url": "https://news.ycombinator.com/item?id=48473845",
+              "date": "2026-06-10",
+              "author_type": "builder (competition signal)"
+            },
+            {
+              "quote": "Subtask - Multi-LLM routing for Claude Code quota limits",
+              "url": "https://news.ycombinator.com/item?id=47139170",
+              "date": "2026-02-24",
+              "author_type": "builder (competition signal)"
+            }
+          ],
+          "missing_signal": "A G2/Capterra review from a paying CodeRabbit/Claude-Code-subscription customer naming this exact throttling complaint, or an Upwork/Freelancer gig with budget attached for a self-hosted quota/routing setup. Today's G2/Capterra Exa sweep for 'CodeRabbit Claude Code review quota' returned only generic review-aggregator and blueprint pages, no citable complaint."
+        },
+        {
+          "id": "c-2026-07-06-01",
+          "jtbd": "Solo/small-team DTC Shopify merchant spending ~$2-20k/mo on Meta ads, too small for Triple Whale/Northbeam-tier pricing, whose Shopify order count and Meta Ads Manager conversion count don't match and can't tell why",
+          "status": "output",
+          "tier": "A",
+          "score": 78,
+          "signal_classes": [
+            "community_pain_shopify_forum",
+            "wtp_proxy_g2_freelancer"
+          ],
+          "evidence_count": 8,
+          "recurring": true,
+          "last_seen": "2026-08-04",
+          "reconfirmation_note": "Reconfirmed strongly: a brand-new Shopify community thread on the exact JTBD appeared 2026-07-03 ('Why Do Shopify Orders and Meta Purchase Events Never Match Exactly?'), and the 2026-05-09 thread ('Shopify dashboard showing wrong data + missing sales in tracking (Meta/Triple Whale)') kept getting fresh replies through 2026-07-08 -- a full month after the cluster was first logged. Score and tier unchanged (no new signal class found today; today's Apify Upwork queries for this exact JTBD ('shopify meta ads reconciliation', 'shopify ads attribution') both returned 0 items, so no fresh WTP data point added). Score/tier held at 78/A on the strength of prior evidence plus this recurrence. Second sighting -- one more recurrence (3+) would qualify it for 'hot' status per housekeeping rules.",
+          "new_evidence": [
+            {
+              "quote": "Why Do Shopify Orders and Meta Purchase Events Never Match Exactly?",
+              "url": "https://community.shopify.com/t/why-do-shopify-orders-and-meta-purchase-events-never-match-exactly/645132",
+              "date": "2026-07-03",
+              "author_type": "buyer/merchant"
+            },
+            {
+              "quote": "Shopify dashboard showing wrong data + missing sales in tracking (Meta / Triple Whale) -- thread still active with new replies",
+              "url": "https://community.shopify.com/t/shopify-dashboard-showing-wrong-data-missing-sales-in-tracking-meta-triple-whale/570102/23",
+              "date": "2026-07-08",
+              "author_type": "buyer/merchant"
+            }
+          ]
+        }
+      ],
+      "clusters_status_carried": [
+        {
+          "id": "c-2026-07-05-02",
+          "status": "killed",
+          "last_seen": "2026-07-05",
+          "note": "Integration glue selected today; re-mined but only vendor-comparison content (Pabbly/Zapier/Make listicles) and a builder self-promo post (ByteChef) found, no buyer-pain quotes. Status unchanged; not re-opened as this remains vendor/content-only."
+        },
+        {
+          "id": "c-2026-07-05-03",
+          "status": "killed",
+          "last_seen": "2026-07-05",
+          "note": "Not in today's selected domains; status unchanged."
+        },
+        {
+          "id": "c-2026-07-05-04",
+          "status": "killed",
+          "last_seen": "2026-07-05",
+          "note": "Not in today's selected domains; status unchanged."
+        },
+        {
+          "id": "c-2026-07-05-05",
+          "status": "killed",
+          "last_seen": "2026-07-05",
+          "note": "Not in today's selected domains; status unchanged."
+        }
+      ],
+      "ideas_output": [
+        {
+          "name": "ShopMatch Reconcile",
+          "cluster_id": "c-2026-07-06-01",
+          "tier": "A",
+          "score": 78,
+          "note": "reconfirmed, not a new pick"
+        },
+        {
+          "name": "OpenReview Relay",
+          "cluster_id": "c-2026-07-05-01",
+          "tier": "B",
+          "score": 64,
+          "note": "reconfirmed, competition thickening"
+        }
+      ],
+      "killed_today": [
+        {
+          "domain": "Integration glue (horizontal)",
+          "reason": "All hits (Exa indiehackers/dev.to pain sweep + G2/Capterra Zapier-switch sweep) were SEO comparison content ('Zapier vs Make vs n8n', 'Best Zapier Alternatives') or a founder's own 'we built X' launch post (ByteChef). No genuine buyer complaint quote found. No demand evidence found today."
+        },
+        {
+          "domain": "Field services / vertical CRM",
+          "reason": "dev.to hits were tutorial/comparison content ('Jobber vs ServiceTitan', 'I Compared 15+ Contractor Tools'), not buyer complaints. Quora via Exa returned only anti-bot placeholder pages ('Something went wrong') with no extractable content -- flagged as a source issue, not evidence of absence. No demand evidence found today."
+        },
+        {
+          "domain": "Recruiting / HR ops",
+          "reason": "All Indiehackers hits were founders' own ATS/screening-tool launch posts (supply-side), not buyer complaints. Freelancer.com 'recruiting' query returned human-labor gigs (sourcers, screeners, VAs) rather than software-purchase signals. No demand evidence found today."
+        }
+      ],
+      "slack_message_ts": null,
+      "sources_unreachable": [
+        "reddit.com (direct .json/.rss 403 from datacenter IP; no REDDIT_CLIENT_ID/SECRET set; Apify Reddit call not attempted -- 2-call hard cap already spent on Upwork)",
+        "api.github.com/search/* (session proxy passthrough also blocked it today: 'sessions are bound to their configured repositories'; fell back to r.jina.ai/github/trending, which returned only generic TypeScript trending, not query-specific -- not useful for competition checks today)",
+        "quora.com via Exa (returned anti-bot 'Something went wrong, wait a moment and try again' placeholder pages for all field-service queries today, no extractable content)"
+      ],
+      "apify_status": "Preflight budget check: $4.877 remaining (of $5/month). Spent both hard-capped actor calls on Upwork (neatrat/upwork-job-scraper): 'shopify meta ads reconciliation' and 'shopify ads attribution' queries for the E-commerce/DTC domain, both returned 0 items. Reddit call skipped (2-call cap reached, per Upwork-first priority rule)."
     }
   ],
   "clusters": [
@@ -209,17 +696,22 @@
       "jtbd": "Developer who pays for an AI code-review tool (e.g. CodeRabbit) wants unthrottled, affordable automated review of AI-agent-generated PRs",
       "status": "output",
       "tier": "B",
-      "score": 65,
-      "signal_classes": ["hn_ask", "community_pain_devto"],
-      "evidence_count": 2,
+      "score": 64,
+      "signal_classes": [
+        "hn_ask",
+        "community_pain_devto"
+      ],
+      "evidence_count": 7,
       "recurring": true,
-      "last_seen": "2026-07-06"
+      "last_seen": "2026-08-04"
     },
     {
       "id": "c-2026-07-05-02",
       "jtbd": "SMB/agency needs native Tool A <-> Tool B sync instead of Zapier",
       "status": "killed",
-      "signal_classes": ["exa_news"],
+      "signal_classes": [
+        "exa_news"
+      ],
       "evidence_count": 1,
       "last_seen": "2026-07-05"
     },
@@ -227,7 +719,9 @@
       "id": "c-2026-07-05-03",
       "jtbd": "Solopreneur/freelancer wants automated invoice chasing / bookkeeping",
       "status": "killed",
-      "signal_classes": ["exa_news"],
+      "signal_classes": [
+        "exa_news"
+      ],
       "evidence_count": 1,
       "last_seen": "2026-07-05"
     },
@@ -235,7 +729,9 @@
       "id": "c-2026-07-05-04",
       "jtbd": "SMB wants AI-assisted contract review / compliance checklist generation",
       "status": "killed",
-      "signal_classes": ["exa_news"],
+      "signal_classes": [
+        "exa_news"
+      ],
       "evidence_count": 1,
       "last_seen": "2026-07-05"
     },
@@ -243,7 +739,9 @@
       "id": "c-2026-07-05-05",
       "jtbd": "Small business owner wants an AI assistant for back-office admin",
       "status": "killed",
-      "signal_classes": ["exa_news"],
+      "signal_classes": [
+        "exa_news"
+      ],
       "evidence_count": 1,
       "last_seen": "2026-07-05"
     },
@@ -253,13 +751,45 @@
       "status": "output",
       "tier": "A",
       "score": 78,
-      "signal_classes": ["community_pain_shopify_forum", "wtp_proxy_g2_freelancer"],
-      "evidence_count": 6,
-      "last_seen": "2026-07-06"
+      "signal_classes": [
+        "community_pain_shopify_forum",
+        "wtp_proxy_g2_freelancer"
+      ],
+      "evidence_count": 8,
+      "last_seen": "2026-08-04",
+      "recurring": true
     }
   ],
   "domains_history": [
-    {"date": "2026-07-05", "domains": ["Dev tools / AI-coding workflow", "Integration glue (horizontal)", "Solopreneur finance ops", "Legal / compliance ops for SMBs", "Agent-powered SMB ops automation"]},
-    {"date": "2026-07-06", "domains": ["Dev tools / AI-coding workflow", "E-commerce / DTC ad ops", "Real estate ops", "Creator / newsletter tooling", "Recruiting / HR ops"]}
+    {
+      "date": "2026-07-05",
+      "domains": [
+        "Dev tools / AI-coding workflow",
+        "Integration glue (horizontal)",
+        "Solopreneur finance ops",
+        "Legal / compliance ops for SMBs",
+        "Agent-powered SMB ops automation"
+      ]
+    },
+    {
+      "date": "2026-07-06",
+      "domains": [
+        "Dev tools / AI-coding workflow",
+        "E-commerce / DTC ad ops",
+        "Real estate ops",
+        "Creator / newsletter tooling",
+        "Recruiting / HR ops"
+      ]
+    },
+    {
+      "date": "2026-08-04",
+      "domains": [
+        "Dev tools / AI-coding workflow",
+        "E-commerce / DTC ad ops",
+        "Integration glue (horizontal)",
+        "Field services / vertical CRM",
+        "Recruiting / HR ops"
+      ]
+    }
   ]
 }
