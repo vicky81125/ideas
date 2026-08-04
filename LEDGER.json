@@ -681,7 +681,7 @@
           "reason": "All Indiehackers hits were founders' own ATS/screening-tool launch posts (supply-side), not buyer complaints. Freelancer.com 'recruiting' query returned human-labor gigs (sourcers, screeners, VAs) rather than software-purchase signals. No demand evidence found today."
         }
       ],
-      "slack_message_ts": null,
+      "slack_message_ts": "1785869203.655839",
       "sources_unreachable": [
         "reddit.com (direct .json/.rss 403 from datacenter IP; no REDDIT_CLIENT_ID/SECRET set; Apify Reddit call not attempted -- 2-call hard cap already spent on Upwork)",
         "api.github.com/search/* (session proxy passthrough also blocked it today: 'sessions are bound to their configured repositories'; fell back to r.jina.ai/github/trending, which returned only generic TypeScript trending, not query-specific -- not useful for competition checks today)",
